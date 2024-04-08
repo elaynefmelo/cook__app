@@ -21,7 +21,7 @@ export function Recipe({ recipe, ...rest }: Props) {
     <TouchableOpacity style={styles.container} activeOpacity={0.8} {...rest}>
       <ImageBackground source={{ uri: recipe.image }} style={styles.image}>
         <LinearGradient
-          colors={["rgba(0,0,0,0.5)", "#000"]}
+          colors={["rgba(0,0,0,0.3)", "#000"]}
           style={styles.linear}
         >
           <Text style={styles.title} numberOfLines={1} lineBreakMode="tail">

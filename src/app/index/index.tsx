@@ -3,6 +3,7 @@ import { styles } from "./styles"
 import { Ingredient } from "@/components/Ingredient";
 import { useState } from "react";
 import { Selected } from "@/components/Selected";
+import { router } from "expo-router";
  
 
 export default function Index(){
@@ -17,7 +18,7 @@ export default function Index(){
         setSelected((state) => [...state, value])
     }
 //função de alerta, garante que o usuario saiba o q esta fazendo
-    function handClearSelected(){
+    function handleClearSelected(){
         Alert.alert("Limpar", "Deseja limpar tudo?",
         [
             {text: "Não", style: "cancel" },
@@ -25,7 +26,11 @@ export default function Index(){
         ])
        
     }
-
+    // função de navegação ate a pagina desejada
+    function handleSearch() {
+        router.navigate("/recipes/")
+    }
+    //Ambas funcões foram adicionadas na função selected (que fou criada no componet Selected), para que o usuario possa navegar até la 
     return(
         <View style={styles.container}>
             <Text style={styles.title}>
@@ -52,8 +57,8 @@ export default function Index(){
             { selected.length > 0 && (
                 <Selected 
                 quantity={selected.length} 
-                onClear={handClearSelected}
-                onSearch={() => {}}
+                onClear={handleClearSelected}
+                onSearch={handleSearch}
             />
             )}
         </View>

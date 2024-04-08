@@ -19,6 +19,7 @@ export function Selected({ quantity, onClear, onSearch}: Props){
             </View>
 
             <Button title="Encontrar" onPress={onSearch} />
+            
 
         </Animated.View>
     )
